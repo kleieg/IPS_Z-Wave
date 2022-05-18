@@ -35,7 +35,7 @@ class ShellyRGBW2Voute extends IPSModule
         $Buffer = $data;
 
         if (fnmatch('*/online', $Buffer->Topic)) {
-            $this->SetValue("Connected", $Buffer->Payload === 'Online' ? true : false);
+            $this->SetValue("Connected", $Buffer->Payload === 'true' ? true : false);
         }
     }
 
