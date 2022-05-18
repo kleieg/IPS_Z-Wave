@@ -1,6 +1,6 @@
 <?php
 
-class ESPDevice extends IPSModule
+class ShellyRGBW2Voute extends IPSModule
 {
     public function Create()
     {
