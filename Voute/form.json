@@ -1,0 +1,24 @@
+{
+    "elements":
+        [
+            {
+                "name": "Topic",
+                "type": "ValidationTextBox",
+                "caption": "MQTT Device Topic"
+            },
+            {
+                "type": "Label",
+                "caption": "Status and Last Will Topic are relative to the main device topic"
+            },
+            {
+                "name": "StatusTopic",
+                "type": "ValidationTextBox",
+                "caption": "MQTT Status Topic"
+            },
+            {
+                "name": "LastWillTopic",
+                "type": "ValidationTextBox",
+                "caption": "MQTT LWT Topic"
+            }
+        ]
+}
