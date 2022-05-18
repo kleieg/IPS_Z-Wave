@@ -34,10 +34,6 @@ class ShellyRGBW2Voute extends IPSModule
 
         $Buffer = $data;
 
-        $topic = $this->ReadPropertyString('Topic');
-        $lwtTopic = $this->ReadPropertyString('LastWillTopic');
-        $statusTopic = $this->ReadPropertyString('StatusTopic');
-
         if (fnmatch('*/online', $Buffer->Topic)) {
             $this->SetValue("Connected", $Buffer->Payload === 'Online' ? true : false);
         }
