@@ -1,9 +1,9 @@
 {
 	"id": "{B3D40E70-348E-4EFB-A920-80AD5681E993}",
-	"name": "Shelly Voute",
+	"name": "Shelly RGBW2 Voute",
 	"type": 3,
-	"vendor": "Espressif",
-	"aliases": 
+	"vendor": "Shelly",
+	"aliases":
 	[
 	],
 	"parentRequirements": ["{043EA491-0325-4ADD-8FC2-A30C8EEB4D3F}"],
