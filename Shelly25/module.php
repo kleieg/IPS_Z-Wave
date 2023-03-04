@@ -1,6 +1,6 @@
 <?php
 
-class ShellyRGBW2Voute extends IPSModule
+class Shelly25 extends IPSModule
 {
     protected function getChannelRelay(string $topic)
     {
