@@ -52,12 +52,12 @@ class Shelly25 extends IPSModule
         if (fnmatch('*/input/[01]', $Buffer->Topic)) {
             $input = $this->getChannelRelay($Buffer->Topic);
             $value = $Buffer->Payload;
-            $this->SetValue("Input" . ($input+1), $value);
+            $this->SetValue("Input" . ($input+1), $value == 0 ? false : true);
         }
         if (fnmatch('*/relay/[01]', $Buffer->Topic)) {
             $relay = $this->getChannelRelay($Buffer->Topic);
             $value = $Buffer->Payload;
-            $this->SetValue("State" . ($relay+1), $value);
+            $this->SetValue("State" . ($relay+1), $value == 0 ? false : true);
         }
     }
 
