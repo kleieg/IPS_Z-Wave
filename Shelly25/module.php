@@ -59,7 +59,7 @@ class Shelly25 extends IPSModule
         if (fnmatch('*/relay/[01]', $Buffer->Topic)) {
             $relay = $this->getChannelRelay($Buffer->Topic);
             $value = $Buffer->Payload;
-            $this->SetValue("State" . ($relay+1), $value == 0 ? false : true);
+            $this->SetValue("State" . ($relay+1), $value == 'on' ? true : true);
         }
     }
 
