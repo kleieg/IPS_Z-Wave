@@ -25,7 +25,9 @@ class Shelly25 extends IPSModule
         $this->RegisterVariableBoolean("Input1", "Input1");
         $this->RegisterVariableBoolean("Input2", "Input2");
         $this->RegisterVariableBoolean("State1", "State1", '~Switch');
+        $this->EnableAction("State1");
         $this->RegisterVariableBoolean("State2", "State2", '~Switch');
+        $this->EnableAction("State2");
     }
 
     public function ApplyChanges()
