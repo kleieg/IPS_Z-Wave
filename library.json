@@ -2,11 +2,11 @@
     "id": "{75F027BB-F5B4-47F5-918A-8012D45E55FF}",
     "name": "Shelly",
     "author": "Martin Kleinhans",
-    "url": "https://github.com/thart/IPSymconShelly",
+    "url": "https://github.com/tharit/IPSymconShelly",
     "compatibility": {
         "version": "6.0"
     },
     "version": "1.0",
-    "build": 19,
+    "build": 20,
     "date": 25
 }
