@@ -42,30 +42,28 @@ class Shellyi4Plus extends IPSModule
         $this->SendDebug('JSON', $JSONString, 0);
         if (empty($this->ReadPropertyString('Topic'))) return;
 
-        if (!empty($this->ReadPropertyString('MQTTTopic'))) {
-            $Buffer = json_decode($JSONString, true);
-            $this->SendDebug('JSON', $Buffer, 0);
+        $Buffer = json_decode($JSONString, true);
+        $this->SendDebug('JSON', $Buffer, 0);
 
-            //Für MQTT Fix in IPS Version 6.3
-            if (IPS_GetKernelDate() > 1670886000) {
-                $Buffer['Payload'] = utf8_decode($Buffer['Payload']);
+        //Für MQTT Fix in IPS Version 6.3
+        if (IPS_GetKernelDate() > 1670886000) {
+            $Buffer['Payload'] = utf8_decode($Buffer['Payload']);
+        }
+
+        $Payload = json_decode($Buffer['Payload'], true);
+        if (array_key_exists('Topic', $Buffer)) {
+            if (fnmatch('*/online', $Buffer['Topic'])) {
+                $this->SetValue('Connected', $Payload);
             }
-
-            $Payload = json_decode($Buffer['Payload'], true);
-            if (array_key_exists('Topic', $Buffer)) {
-                if (fnmatch('*/online', $Buffer['Topic'])) {
-                    $this->SetValue('Reachable', $Payload);
-                }
-                if (fnmatch('*/events/rpc', $Buffer['Topic'])) {
-                    if (array_key_exists('params', $Payload)) {
-                        
-                        for ($i = 0; $i <= 3; $i++) {
-                            $inputIndex = 'input:' . $i;
-                            if (array_key_exists($inputIndex, $Payload['params'])) {
-                                $input = $Payload['params'][$inputIndex];
-                                if (array_key_exists('state', $input)) {
-                                    $this->SetValue('Input' . ($i + 1), $input['state']);
-                                }
+            if (fnmatch('*/events/rpc', $Buffer['Topic'])) {
+                if (array_key_exists('params', $Payload)) {
+                    
+                    for ($i = 0; $i <= 3; $i++) {
+                        $inputIndex = 'input:' . $i;
+                        if (array_key_exists($inputIndex, $Payload['params'])) {
+                            $input = $Payload['params'][$inputIndex];
+                            if (array_key_exists('state', $input)) {
+                                $this->SetValue('Input' . ($i + 1), $input['state']);
                             }
                         }
                     }
