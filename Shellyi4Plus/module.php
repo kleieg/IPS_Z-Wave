@@ -43,12 +43,6 @@ class Shellyi4Plus extends IPSModule
         if (empty($this->ReadPropertyString('Topic'))) return;
 
         $Buffer = json_decode($JSONString, true);
-        $this->SendDebug('JSON', $Buffer, 0);
-
-        //Für MQTT Fix in IPS Version 6.3
-        if (IPS_GetKernelDate() > 1670886000) {
-            $Buffer['Payload'] = utf8_decode($Buffer['Payload']);
-        }
 
         $Payload = json_decode($Buffer['Payload'], true);
         if (array_key_exists('Topic', $Buffer)) {
