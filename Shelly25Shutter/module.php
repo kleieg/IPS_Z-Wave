@@ -95,28 +95,28 @@ class Shelly25Shutter extends IPSModule
 
     private function MoveDown()
     {
-        $Topic = '/roller/0/command';
+        $Topic = 'roller/0/command';
         $Payload = 'close';
         $this->SendRequest($Topic, $Payload);
     }
 
     private function MoveUp()
     {
-        $Topic = '/roller/0/command';
+        $Topic = 'roller/0/command';
         $Payload = 'open';
         $this->SendRequest($Topic, $Payload);
     }
 
     private function Move($position)
     {
-        $Topic = '/roller/0/command/pos';
+        $Topic = 'roller/0/command/pos';
         $Payload = strval($position);
         $this->SendRequest($Topic, $Payload);
     }
 
     private function Stop()
     {
-        $Topic = '/roller/0/command';
+        $Topic = 'roller/0/command';
         $Payload = 'stop';
         $this->SendRequest($Topic, $Payload);
     }
