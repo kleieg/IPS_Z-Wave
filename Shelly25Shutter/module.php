@@ -72,7 +72,7 @@ class Shelly25Shutter extends IPSModule
     public function RequestAction($Ident, $Value)
     {
         switch ($Ident) {
-            case 'Shelly_Roller':
+            case 'Roller':
                 switch ($Value) {
                     case 0:
                         $this->MoveUp();
@@ -87,7 +87,7 @@ class Shelly25Shutter extends IPSModule
                         break;
                 }
             break;
-            case 'Shelly_RollerPosition':
+            case 'Position':
                 $this->Move($Value);
                 break;
         }
