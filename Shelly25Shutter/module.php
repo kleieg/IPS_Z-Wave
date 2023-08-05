@@ -90,7 +90,6 @@ class Shelly25 extends IPSModule
             case 'Shelly_RollerPosition':
                 $this->Move($Value);
                 break;
-            }
         }
     }
 
