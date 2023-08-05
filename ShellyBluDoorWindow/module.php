@@ -38,7 +38,7 @@ class ShellyBluDoorWindow extends IPSModule
         
         // deduplicate packages (e.g., if multiple gateways are receiving..)
         $lastPID = unserialize($this->GetBuffer('pid'));
-        if($lastPid == $Payload['pid']) return;
+        if($lastPID == $Payload['pid']) return;
         $this->SetBuffer('pid', serialize($Payload['pid']));
 
         if($Payload['Rotation'] > 0) {
