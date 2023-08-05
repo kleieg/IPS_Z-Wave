@@ -1,6 +1,6 @@
 <?php
 
-class Shelly25 extends IPSModule
+class ShellyBluDoorWindow extends IPSModule
 {
     protected function getChannelRelay(string $topic)
     {
