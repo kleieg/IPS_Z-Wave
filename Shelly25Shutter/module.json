@@ -1,0 +1,14 @@
+{
+	"id": "{AE574291-5770-4411-94DB-5B6838A220CC}",
+	"name": "Shelly 25 Shutter",
+	"type": 3,
+	"vendor": "Shelly",
+	"aliases":
+	[
+	],
+	"parentRequirements": ["{043EA491-0325-4ADD-8FC2-A30C8EEB4D3F}"],
+	"childRequirements": [],
+	"implemented": ["{7F7632D9-FA40-4F38-8DEA-C83CD4325A32}"],
+	"prefix": "SHL",
+    "url": "https://github.com/tharit/IPSymconShelly"
+}

@@ -83,7 +83,7 @@ class Shelly25 extends IPSModule
         } else {
             $Payload = 'off';
         }
-        $this->SendREquest($Topic, $Payload);
+        $this->SendRequest($Topic, $Payload);
     }
 
     public function SendRequest(string $Ident, string $Value)
