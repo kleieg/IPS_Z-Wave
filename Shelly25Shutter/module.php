@@ -1,6 +1,6 @@
 <?php
 
-class Shelly25 extends IPSModule
+class Shelly25Shutter extends IPSModule
 {
     protected function getChannelRelay(string $topic)
     {
