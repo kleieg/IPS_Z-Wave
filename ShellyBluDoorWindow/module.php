@@ -14,7 +14,7 @@ class ShellyBluDoorWindow extends IPSModule
 
         // variables
         $this->RegisterVariableInteger("State", "State");
-        $this->RegisterVariableInteger("Battery", "Battery");
+        $this->RegisterVariableInteger("Battery", "Battery", '~Battery.100');
 
         $this->SetBuffer('pid', serialize(-1));
     }
@@ -34,13 +34,13 @@ class ShellyBluDoorWindow extends IPSModule
         if (empty($this->ReadPropertyString('Address'))) return;
 
         $Buffer = json_decode($JSONString, true);
-
+        $Payload = json_decode($Buffer['Payload'], true);
+        
         // deduplicate packages (e.g., if multiple gateways are receiving..)
-        $lastPID = unserialize($this->GetBuffer($Name));
+        $lastPID = unserialize($this->GetBuffer('pid'));
         if($lastPid == $Payload['pid']) return;
         $this->SetBuffer('pid', serialize($Payload['pid']));
 
-        $Payload = json_decode($Buffer['Payload'], true);
         if($Payload['Rotation'] > 0) {
             $this->SetValue('State', 2);
         } else if($Payload['Window'] == 1) {
