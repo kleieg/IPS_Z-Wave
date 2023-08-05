@@ -2,14 +2,6 @@
 
 class Shelly25Shutter extends IPSModule
 {
-    protected function getChannelRelay(string $topic)
-    {
-        $ShellyTopic = explode('/', $topic);
-        $LastKey = count($ShellyTopic) - 1;
-        $relay = $ShellyTopic[$LastKey];
-        return $relay;
-    }
-
     public function Create()
     {
         //Never delete this line!

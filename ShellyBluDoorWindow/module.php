@@ -2,14 +2,6 @@
 
 class ShellyBluDoorWindow extends IPSModule
 {
-    protected function getChannelRelay(string $topic)
-    {
-        $ShellyTopic = explode('/', $topic);
-        $LastKey = count($ShellyTopic) - 1;
-        $relay = $ShellyTopic[$LastKey];
-        return $relay;
-    }
-
     public function Create()
     {
         //Never delete this line!
@@ -18,7 +10,7 @@ class ShellyBluDoorWindow extends IPSModule
         $this->ConnectParent('{C6D2AEB3-6E1F-4B2E-8E69-3A1A00246850}');
 
         // properties
-        $this->RegisterPropertyString('Topic', '');
+        $this->RegisterPropertyString('Address', '');
 
         // variables
         $this->RegisterVariableInteger("State", "State");
@@ -32,14 +24,14 @@ class ShellyBluDoorWindow extends IPSModule
         //Never delete this line!
         parent::ApplyChanges();
 
-        $topic = $this->ReadPropertyString('Topic');
+        $topic = $this->ReadPropertyString('Address');
         $this->SetReceiveDataFilter('.*' . $topic . '.*');
     }
 
     public function ReceiveData($JSONString)
     {
         $this->SendDebug('JSON', $JSONString, 0);
-        if (empty($this->ReadPropertyString('Topic'))) return;
+        if (empty($this->ReadPropertyString('Address'))) return;
 
         $Buffer = json_decode($JSONString, true);
 
