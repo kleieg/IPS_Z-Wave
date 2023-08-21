@@ -64,11 +64,11 @@ class ShellyPlugSPlus extends IPSModule
             }
             if (fnmatch('*/actors/*', $Buffer['Topic'])) {
                 $parts = explode('/', $Buffer['Topic']);
-                $this->UpdateValue($parts[count($parts)-1], $value);
+                $this->UpdateValue($parts[count($parts)-1], $Payload);
             }
             if (fnmatch('*/sensors/*', $Buffer['Topic'])) {
                 $parts = explode('/', $Buffer['Topic']);
-                $this->UpdateValue($parts[count($parts)-1], $value, true);
+                $this->UpdateValue($parts[count($parts)-1], $Payload, true);
             }
         }
     }
