@@ -1,6 +1,6 @@
 <?php
 
-class Shellyi4Plus extends IPSModule
+class ShellyPlugSPlus extends IPSModule
 {
     protected function getChannelRelay(string $topic)
     {
