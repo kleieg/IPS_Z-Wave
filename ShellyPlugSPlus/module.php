@@ -24,6 +24,7 @@ class ShellyPlugSPlus extends IPSModule
         // variables
         $this->RegisterVariableBoolean("Connected", "Connected");
         $this->RegisterVariableBoolean("State1", "State1");
+        $this->EnableAction("State1");
     }
 
     public function ApplyChanges()
