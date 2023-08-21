@@ -87,6 +87,11 @@ class ShellyPlugSPlus extends IPSModule
     }
 
     private function UpdateValue($key, $value, $readonly = true) {
+        if($value == 'true' || $value == 'false') {
+            $value = $value == 'true' ? true : false;
+        } else if(floatval($value) == $value) {
+            $value = floatval($value);
+        }
         $type = gettype($value);
         if($type === 'integer' || $type === 'double') {
             $this->RegisterVariableFloat($key, $key);
