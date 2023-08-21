@@ -89,7 +89,7 @@ class ShellyPlugSPlus extends IPSModule
             $Payload['params'] = ['id' => 0, 'on' => $Value];
 
             $Server['Topic'] = $this->ReadPropertyString('Topic') . '/rpc';
-            $Server['Payload'] = $Payload;
+            $Server['Payload'] = json_encode($Payload);
         } else {
             $Server['Retain'] = $this->ReadPropertyBoolean('RetainActuatorValues');
             $Server['Topic'] = $this->ReadPropertyString('Topic') . '/actors/' . $Ident . '/cmd';
