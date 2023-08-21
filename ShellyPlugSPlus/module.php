@@ -80,7 +80,7 @@ class ShellyPlugSPlus extends IPSModule
         $Server['PacketType'] = 3;
         $Server['QualityOfService'] = 0;
         $Server['Retain'] = $this->ReadPropertyBoolean('RetainActuatorValues');
-        $Server['Topic'] = $this->ReadPropertyString('Topic') . '/actors/' . $Ident;
+        $Server['Topic'] = $this->ReadPropertyString('Topic') . '/actors/' . $Ident . '/cmd';
         $Server['Payload'] = json_encode($Value);
         $ServerJSON = json_encode($Server, JSON_UNESCAPED_SLASHES);
         $resultServer = $this->SendDataToParent($ServerJSON);
