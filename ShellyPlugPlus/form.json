@@ -1,0 +1,15 @@
+{
+    "elements":
+        [
+            {
+                "name": "Topic",
+                "type": "ValidationTextBox",
+                "caption": "MQTT Device Topic (without shellies prefix)"
+            },
+            {
+                "name": "RetainActuatorValues",
+                "type": "CheckBox",
+                "caption": "Retain requested actuator values"
+            }
+        ]
+}
