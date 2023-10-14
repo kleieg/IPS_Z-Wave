@@ -11,6 +11,7 @@ class ShellyBluDoorWindow extends IPSModule
 
         // properties
         $this->RegisterPropertyString('Address', '');
+        $this->RegisterPropertyFloat('RotationThreshold', 0.0);
 
         // variables
         $this->RegisterVariableInteger("State", "State");
@@ -41,7 +42,7 @@ class ShellyBluDoorWindow extends IPSModule
         if($lastPID == $Payload['pid']) return;
         $this->SetBuffer('pid', serialize($Payload['pid']));
 
-        if($Payload['Rotation'] > 0) {
+        if(abs($Payload['Rotation']) > abs($this->ReadPropertyFloat('RotationThreshold'))) {
             $this->SetValue('State', 2);
         } else if($Payload['Window'] == 1) {
             $this->SetValue('State', 1);

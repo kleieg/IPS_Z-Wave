@@ -5,6 +5,11 @@
                 "name": "Address",
                 "type": "ValidationTextBox",
                 "caption": "BLE Address"
+            },
+            {
+                "name": "Rotation Threshold",
+                "type": "ValidationTextBox",
+                "caption": "Minimum rotation to count as tilted"
             }
         ]
 }
