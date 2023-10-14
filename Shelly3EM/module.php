@@ -20,6 +20,8 @@ class Shelly3EM extends IPSModule
         $this->RegisterVariableFloat("Shelly_Total0", "Total L1", '~Electricity');
         $this->RegisterVariableFloat("Shelly_Total1", "Total L2", '~Electricity');
         $this->RegisterVariableFloat("Shelly_Total2", "Total L3", '~Electricity');
+        $this->RegisterVariableBoolean("State", "State", '~Switch');
+        $this->EnableAction("State");
     }
 
     public function ApplyChanges()
@@ -73,5 +75,42 @@ class Shelly3EM extends IPSModule
             $this->SendDebug('Total L3 Payload', $Buffer->Payload, 0);
             $this->SetValue('Shelly_Total2', floatval($Buffer->Payload) / 1000);
         }
+
+        // Relay
+        if (fnmatch('*/relay/0', $Buffer->Topic)) {
+            $value = $Buffer->Payload;
+            $this->SetValue("State", $value == 'on' ? true : false);
+        }
+    }
+
+    public function RequestAction($Ident, $Value)
+    {
+        if($Ident === 'State') {
+            $this->SwitchMode(0, $Value);
+        }
+    }
+
+    private function SwitchMode(int $relay, bool $Value)
+    {
+        $Topic = 'relay/' . $relay . '/command';
+        if ($Value) {
+            $Payload = 'on';
+        } else {
+            $Payload = 'off';
+        }
+        $this->SendRequest($Topic, $Payload);
+    }
+
+    public function SendRequest(string $Ident, string $Value)
+    {
+        //MQTT Server
+        $Server['DataID'] = '{043EA491-0325-4ADD-8FC2-A30C8EEB4D3F}';
+        $Server['PacketType'] = 3;
+        $Server['QualityOfService'] = 0;
+        $Server['Retain'] = false;
+        $Server['Topic'] = 'shellies/' . $this->ReadPropertyString('Topic') . '/' . $Ident;
+        $Server['Payload'] = $Value;
+        $ServerJSON = json_encode($Server, JSON_UNESCAPED_SLASHES);
+        $resultServer = $this->SendDataToParent($ServerJSON);
     }
 }
