@@ -8,7 +8,8 @@
             },
             {
                 "name": "RotationThreshold",
-                "type": "ValidationTextBox",
+                "type": "NumberSpinner",
+                "digits": 1,
                 "caption": "Minimum rotation to count as tilted"
             }
         ]
