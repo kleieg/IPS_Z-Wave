@@ -7,7 +7,7 @@
                 "caption": "BLE Address"
             },
             {
-                "name": "Rotation Threshold",
+                "name": "RotationThreshold",
                 "type": "ValidationTextBox",
                 "caption": "Minimum rotation to count as tilted"
             }
