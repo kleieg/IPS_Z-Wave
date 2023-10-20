@@ -62,8 +62,8 @@ class ShellyPlugSPlus extends IPSModule
                             if (array_key_exists('output', $input)) {
                                 $this->SetValue('State' . ($i + 1), $input['output']);
                             }
-                            if (array_key_exists('apower', $switch)) {
-                                $this->SetValue('Power', $switch['apower']);
+                            if (array_key_exists('apower', $input)) {
+                                $this->SetValue('Power', $input['apower']);
                             }
                         }
                     }
