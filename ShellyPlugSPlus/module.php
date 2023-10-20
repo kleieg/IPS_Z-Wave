@@ -24,6 +24,9 @@ class ShellyPlugSPlus extends IPSModule
         // variables
         $this->RegisterVariableBoolean("Connected", "Connected");
         $this->RegisterVariableBoolean("State1", "State1");
+        $this->RegisterVariableBoolean("State1", "State1");
+        $this->RegisterVariableFloat("Power", "Power", '~Watt.3680');
+
         $this->EnableAction("State1");
     }
 
@@ -58,6 +61,9 @@ class ShellyPlugSPlus extends IPSModule
                             $input = $Payload['params'][$inputIndex];
                             if (array_key_exists('output', $input)) {
                                 $this->SetValue('State' . ($i + 1), $input['output']);
+                            }
+                            if (array_key_exists('apower', $switch)) {
+                                $this->SetValue('Power', $switch['apower']);
                             }
                         }
                     }
