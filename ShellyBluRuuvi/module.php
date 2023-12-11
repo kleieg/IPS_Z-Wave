@@ -38,17 +38,17 @@ class ShellyBluRuuvi extends IPSModule
         $Payload = json_decode($Buffer['Payload'], true);
         
         // deduplicate packages (e.g., if multiple gateways are receiving..)
-        //$lastPID = unserialize($this->GetBuffer('pid'));
-        //if($lastPID == $Payload['pid']) return;
+        $lastPID = unserialize($this->GetBuffer('pid'));
+        if($lastPID == $Payload['pid']) return;
         $this->SetBuffer('pid', serialize($Payload['pid']));
 
-        if(isset($Payload['Temperature'])) {
+        if(isset($Payload['temp'])) {
             $this->SetValue('Temperature', $Payload['temp']);
         }
-        if(isset($Payload['Humidity'])) {
+        if(isset($Payload['humidity'])) {
             $this->SetValue('Humidity', $Payload['humidity']);
         }
-        if(isset($Payload['Battery'])) {
+        if(isset($Payload['batt'])) {
             $this->SetValue('Battery', $Payload['batt']);
         }
     }
