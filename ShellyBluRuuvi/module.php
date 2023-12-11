@@ -17,7 +17,6 @@ class ShellyBluRuuvi extends IPSModule
         $this->RegisterVariableFloat("Humidity", "Humidity", "~Humidity.F");
         $this->RegisterVariableInteger("Battery", "Battery", '~Battery.100');
 
-        $this->SetBuffer('pid', serialize(-1));
     }
 
     public function ApplyChanges()
@@ -36,11 +35,6 @@ class ShellyBluRuuvi extends IPSModule
 
         $Buffer = json_decode($JSONString, true);
         $Payload = json_decode($Buffer['Payload'], true);
-        
-        // deduplicate packages (e.g., if multiple gateways are receiving..)
-        $lastPID = unserialize($this->GetBuffer('pid'));
-        if($lastPID == $Payload['pid']) return;
-        $this->SetBuffer('pid', serialize($Payload['pid']));
 
         if(isset($Payload['temp'])) {
             $this->SetValue('Temperature', $Payload['temp']);
