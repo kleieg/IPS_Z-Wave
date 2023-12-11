@@ -1,10 +1,10 @@
 {
-    "id": "{75F027BB-F5B4-47F5-918A-8012D45E55FF}",
-    "name": "Shelly",
-    "author": "Martin Kleinhans",
-    "url": "https://github.com/tharit/IPSymconShelly",
+    "id": "{AF498D50-6CB4-3849-FDB4-F4AD05609428}",
+    "name": "ShellyBlue",
+    "author": "MarEgberttin Kleinhans",
+    "url": "https://github.com/kleieg/IPS_ShellyBlue",
     "compatibility": {
-        "version": "6.0"
+        "version": "7.0"
     },
     "version": "1.0",
     "build": 47,

@@ -43,13 +43,13 @@ class ShellyBluHT extends IPSModule
         $this->SetBuffer('pid', serialize($Payload['pid']));
 
         if(isset($Payload['Temperature'])) {
-            $this->SetValue('Temperature', $Payload['Temperature']);
+            $this->SetValue('Temperature', $Payload['temp']);
         }
         if(isset($Payload['Humidity'])) {
-            $this->SetValue('Humidity', $Payload['Humidity']);
+            $this->SetValue('Humidity', $Payload['hum']);
         }
         if(isset($Payload['Battery'])) {
-            $this->SetValue('Battery', $Payload['Battery']);
+            $this->SetValue('Battery', $Payload['bat']);
         }
     }
 
