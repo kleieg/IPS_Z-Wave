@@ -46,10 +46,10 @@ class ShellyBluHT extends IPSModule
             $this->SetValue('Temperature', $Payload['temp']);
         }
         if(isset($Payload['Humidity'])) {
-            $this->SetValue('Humidity', $Payload['hum']);
+            $this->SetValue('Humidity', $Payload['humidity']);
         }
         if(isset($Payload['Battery'])) {
-            $this->SetValue('Battery', $Payload['bat']);
+            $this->SetValue('Battery', $Payload['batt']);
         }
     }
 
