@@ -15,7 +15,7 @@ class ShellyBluRuuvi extends IPSModule
         // variables
         $this->RegisterVariableFloat("Temperature", "Temperature", "~Temperature");
         $this->RegisterVariableFloat("Humidity", "Humidity", "~Humidity.F");
-        $this->RegisterVariableInteger("Battery", "Battery", '~Volt');
+        $this->RegisterVariableFloat("Battery", "Battery", '~Volt');
 
     }
 
