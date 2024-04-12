@@ -1,8 +1,8 @@
 {
-    "id": "{AF498D50-6CB4-3849-FDB4-F4AD05609428}",
-    "name": "ShellyBlue",
+    "id": "{712C3C12-0B44-A5AC-BDC4-8049974B1CB3}",
+    "name": "Z-Wave",
     "author": "Egbert Kleinhans",
-    "url": "https://github.com/kleieg/IPS_ShellyBlue",
+    "url": "https://github.com/kleieg/IPS_Z-Wave",
     "compatibility": {
         "version": "7.0"
     },

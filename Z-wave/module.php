@@ -10,12 +10,11 @@ class ShellyBluRuuvi extends IPSModule
         $this->ConnectParent('{C6D2AEB3-6E1F-4B2E-8E69-3A1A00246850}');
 
         // properties
-        $this->RegisterPropertyString('Address', '');
+        $this->RegisterPropertyString('Topic', '');
 
         // variables
-        $this->RegisterVariableFloat("Temperature", "Temperature", "~Temperature");
-        $this->RegisterVariableFloat("Humidity", "Humidity", "~Humidity.F");
-        $this->RegisterVariableFloat("Battery", "Battery", '~Volt');
+        $this->RegisterVariableFloat("Alarm", "Alarm", "~Alert");
+        $this->RegisterVariableFloat("Battery", "Battery", '~Battery.100');
 
     }
 
@@ -24,7 +23,7 @@ class ShellyBluRuuvi extends IPSModule
         //Never delete this line!
         parent::ApplyChanges();
 
-        $topic = $this->ReadPropertyString('Address');
+        $topic = $this->ReadPropertyString('Topic');
         $this->SetReceiveDataFilter('.*' . $topic . '.*');
     }
 

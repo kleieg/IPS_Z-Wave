@@ -2,9 +2,9 @@
     "elements":
         [
             {
-                "name": "Address",
+                "name": "MQTT Topic",
                 "type": "ValidationTextBox",
-                "caption": "BLE Address"
+                "caption": "MQTT Topic"
             }
         ]
 }
