@@ -1,6 +1,6 @@
 <?php
 
-class ShellyBluRuuvi extends IPSModule
+class MyZwave_melder extends IPSModule
 {
     public function Create()
     {
