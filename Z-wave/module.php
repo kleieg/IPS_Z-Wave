@@ -36,7 +36,7 @@ class MyZwave_melder extends IPSModule
     public function ReceiveData($JSONString)
     {
         $this->SendDebug('JSON', $JSONString, 0);
-        if (empty($this->ReadPropertyString('Address'))) return;
+        if (empty($this->ReadPropertyString('Topic'))) return;
 
         $data = json_decode($JSONString);
 
