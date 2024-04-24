@@ -2,7 +2,7 @@
     "elements":
         [
             {
-                "name": "MQTT Topic",
+                "name": "Topic",
                 "type": "ValidationTextBox",
                 "caption": "MQTT Topic"
             }
