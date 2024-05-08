@@ -44,7 +44,7 @@ class MyZwave_melder extends IPSModule
 
 
         //Melder #6 Serverraum
-        if (fnmatch('*ZZWayVDev_zway_6-0-113-1-2-A', $Buffer->Topic)) {
+        if (fnmatch('*ZWayVDev_zway_6-0-113-1-2-A', $Buffer->Topic)) {
             $this->SendDebug('Alarm_6 Payload', $Buffer->Payload, 0);
             $this->SetValue('Alarm_6', strval($Buffer->Payload));
         }
@@ -54,7 +54,7 @@ class MyZwave_melder extends IPSModule
         }
 
         //Melder #7 Waschkeller
-        if (fnmatch('*ZZWayVDev_zway_7-0-113-1-2-A', $Buffer->Topic)) {
+        if (fnmatch('*ZWayVDev_zway_7-0-113-1-2-A', $Buffer->Topic)) {
             $this->SendDebug('Alarm_7 Payload', $Buffer->Payload, 0);
             $this->SetValue('Alarm_7', strval($Buffer->Payload));
         }
@@ -63,8 +63,8 @@ class MyZwave_melder extends IPSModule
             $this->SetValue('Battery_7', intval($Buffer->Payload));
         }
 
-        //Melder #8 Waschkeller
-        if (fnmatch('*ZZWayVDev_zway_8-0-113-1-2-A', $Buffer->Topic)) {
+        //Melder #8 Treppe
+        if (fnmatch('*ZWayVDev_zway_8-0-113-1-2-A', $Buffer->Topic)) {
             $this->SendDebug('Alarm_8 Payload', $Buffer->Payload, 0);
             $this->SetValue('Alarm_8', strval($Buffer->Payload));
         }
@@ -73,8 +73,8 @@ class MyZwave_melder extends IPSModule
             $this->SetValue('Battery_8', intval($Buffer->Payload));
         }
 
-        //Melder #8 Waschkeller
-        if (fnmatch('*ZZWayVDev_zway_9-0-113-1-2-A', $Buffer->Topic)) {
+        //Melder #8 Schalfzimmer
+        if (fnmatch('*ZWayVDev_zway_9-0-113-1-2-A', $Buffer->Topic)) {
             $this->SendDebug('Alarm_9 Payload', $Buffer->Payload, 0);
             $this->SetValue('Alarm_9', strval($Buffer->Payload));
         }
